@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Cajeros - LA ESCALERA S. A. S.</title>
+  <!-- Google Fonts Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- App Wrapper -->
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <i data-lucide="store" class="logo-icon"></i>
+          <div>
+            <h1 id="brand-title" class="editable-single" data-key="brandName">LA ESCALERA S. A. S.</h1>
+            <span class="logo-badge">Terminal POS</span>
+          </div>
+        </div>
+      </div>
+      
+      <nav class="sidebar-menu">
+        <button class="menu-item active" data-tab="apertura">
+          <i data-lucide="folder-input" class="menu-icon"></i>
+          <span>📥 Apertura</span>
+        </button>
+        <button class="menu-item" data-tab="cobrar">
+          <i data-lucide="banknote" class="menu-icon"></i>
+          <span>💰 Cómo Cobrar</span>
+        </button>
+        <button class="menu-item" data-tab="whatsapp">
+          <i data-lucide="message-square" class="menu-icon"></i>
+          <span>📲 Enviar WhatsApp</span>
+        </button>
+        <button class="menu-item" data-tab="cierre">
+          <i data-lucide="folder-output" class="menu-icon"></i>
+          <span>🔒 Cierre</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-indicator">
+          <span class="pulse-dot"></span>
+          <span class="status-text">Caja Activa (DUX)</span>
+        </div>
+        <div class="datetime-display">
+          <span id="current-date">--/--/----</span>
+          <span id="current-time">00:00:00</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Action Bar -->
+      <header class="top-bar">
+        <div class="welcome-text">
+          <h2 id="welcome-title" class="editable-single" data-key="welcomeTitle">Portal de Ayuda para Cajeros</h2>
+          <p id="welcome-subtitle" class="editable-single" data-key="welcomeSubtitle">Tu guía rápida de consulta diaria para DUX y operaciones de caja.</p>
+        </div>
+        <div class="admin-actions">
+          <button id="admin-mode-btn" class="btn btn-outline">
+            <i data-lucide="settings" class="btn-icon"></i>
+            <span>Modo Editor</span>
+          </button>
+          <button id="publish-btn" class="btn btn-primary hidden">
+            <i data-lucide="cloud-upload" class="btn-icon"></i>
+            <span>Publicar Cambios</span>
+          </button>
+          <span id="editor-indicator" class="editor-indicator hidden">Modo Edición Activo</span>
+        </div>
+      </header>
+
+      <!-- Tab Content Containers -->
+      <div class="content-wrapper">
+        
+        <!-- SECTION: Apertura -->
+        <section id="tab-apertura" class="tab-panel active animate-fade-in">
+          <div class="panel-header">
+            <div class="panel-icon-wrap"><i data-lucide="folder-input"></i></div>
+            <h3 class="panel-title" id="apertura-title" class="editable-single" data-key="sections.apertura.title">Apertura de Caja</h3>
+          </div>
+          
+          <div class="alert-box alert-info">
+            <i data-lucide="info" class="alert-icon"></i>
+            <p id="apertura-alert" class="editable-block" data-key="sections.apertura.alertText">Antes de realizar cualquier venta, es estrictamente obligatorio registrar la apertura en el sistema.</p>
+          </div>
+
+          <div class="grid-2col">
+            <div class="card">
+              <h4 class="card-title"><i data-lucide="list-ordered" class="card-icon-title"></i> Paso a Paso en DUX</h4>
+              <ol class="step-list" id="apertura-steps" data-key="sections.apertura.steps">
+                <!-- Loaded dynamically -->
+              </ol>
+            </div>
+            
+            <div class="card">
+              <h4 class="card-title"><i data-lucide="check-square" class="card-icon-title"></i> Checklist de Control</h4>
+              <p class="card-desc">Verificá estos puntos antes de atender al primer cliente:</p>
+              <ul class="checklist-interactive" id="apertura-checklist">
+                <!-- Loaded dynamically -->
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: Cómo Cobrar -->
+        <section id="tab-cobrar" class="tab-panel animate-fade-in">
+          <div class="panel-header">
+            <div class="panel-icon-wrap"><i data-lucide="banknote"></i></div>
+            <h3 class="panel-title" id="cobrar-title" class="editable-single" data-key="sections.cobrar.title">Cómo Cobrar</h3>
+          </div>
+
+          <div class="alert-box alert-info">
+            <i data-lucide="info" class="alert-icon"></i>
+            <p id="cobrar-alert" class="editable-block" data-key="sections.cobrar.alertText">Seguí los pasos en el mostrador para evitar descuadres en los cierres de caja.</p>
+          </div>
+
+          <div class="shortcuts-container card" id="cobrar-shortcuts" data-key="sections.cobrar.shortcuts">
+            <!-- Loaded dynamically -->
+          </div>
+
+          <div class="card step-by-step-card">
+            <h4 class="card-title"><i data-lucide="play-circle" class="card-icon-title"></i> Procedimiento en Mostrador</h4>
+            <ol class="step-list block-steps" id="cobrar-steps" data-key="sections.cobrar.steps">
+              <!-- Loaded dynamically -->
+            </ol>
+          </div>
+
+          <div class="alert-box alert-danger">
+            <i data-lucide="alert-triangle" class="alert-icon"></i>
+            <p id="cobrar-warning" class="editable-block" data-key="sections.cobrar.warningText">SI EL ARTÍCULO NO FIGURA EN EL SISTEMA: Buscá y seleccioná el ítem denominado "ARTICULO GENERICO" e ingresá el valor monetario correspondiente de forma manual.</p>
+          </div>
+        </section>
+
+        <!-- SECTION: Enviar WhatsApp -->
+        <section id="tab-whatsapp" class="tab-panel animate-fade-in">
+          <div class="panel-header">
+            <div class="panel-icon-wrap"><i data-lucide="message-square"></i></div>
+            <h3 class="panel-title" id="whatsapp-title" class="editable-single" data-key="sections.whatsapp.title">Enviar WhatsApp</h3>
+          </div>
+
+          <div class="alert-box alert-info">
+            <i data-lucide="info" class="alert-icon"></i>
+            <p id="whatsapp-alert" class="editable-block" data-key="sections.whatsapp.alertText">Si el cliente prefiere recibir el comprobante de forma digital en su celular, realizá este proceso inmediatamente después de haber presionado el botón "Nueva Venta".</p>
+          </div>
+
+          <div class="grid-2col">
+            <div class="card">
+              <h4 class="card-title"><i data-lucide="list-ordered" class="card-icon-title"></i> Compartir Ticket desde DUX</h4>
+              <ol class="step-list" id="whatsapp-steps" data-key="sections.whatsapp.steps">
+                <!-- Loaded dynamically -->
+              </ol>
+            </div>
+
+            <!-- WhatsApp Utility Card -->
+            <div class="card premium-card">
+              <h4 class="card-title text-success"><i data-lucide="share-2" class="card-icon-title"></i> Generador de Mensajes</h4>
+              <p class="card-desc">Si mandás el ticket por WhatsApp Web, podés generar un saludo personalizado al instante:</p>
+              
+              <div class="form-group">
+                <label for="wa-name">Nombre del Cliente (Opcional)</label>
+                <input type="text" id="wa-name" placeholder="Ej: Juan">
+              </div>
+
+              <div class="form-group">
+                <label for="wa-phone">Número de Celular (Con código de área)</label>
+                <div class="phone-input-wrap">
+                  <span class="phone-prefix">+54 9</span>
+                  <input type="number" id="wa-phone" placeholder="Ej: 1123456789" min="0">
+                </div>
+                <small class="form-help">Ingresar sin el 15 ni el 0 inicial (ej: 11 o 341 para Rosario).</small>
+              </div>
+
+              <div class="form-group">
+                <label for="wa-template-select">Seleccionar Plantilla</label>
+                <select id="wa-template-select">
+                  <!-- Loaded dynamically -->
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="wa-preview">Vista previa del mensaje</label>
+                <textarea id="wa-preview" rows="3" readonly></textarea>
+              </div>
+
+              <button id="wa-send-btn" class="btn btn-success btn-full">
+                <i data-lucide="send" class="btn-icon"></i>
+                <span>Abrir Chat de WhatsApp</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: Cierre de Caja -->
+        <section id="tab-cierre" class="tab-panel animate-fade-in">
+          <div class="panel-header">
+            <div class="panel-icon-wrap"><i data-lucide="folder-output"></i></div>
+            <h3 class="panel-title" id="cierre-title" class="editable-single" data-key="sections.cierre.title">Cierre de Caja</h3>
+          </div>
+
+          <div class="alert-box alert-info">
+            <i data-lucide="info" class="alert-icon"></i>
+            <p id="cierre-alert" class="editable-block" data-key="sections.cierre.alertText">Al concluir tu jornada de trabajo, es mandatorio efectuar el arqueo y cierre para resguardar la seguridad del dinero.</p>
+          </div>
+
+          <div class="grid-2col">
+            <div class="card">
+              <h4 class="card-title"><i data-lucide="list-ordered" class="card-icon-title"></i> Arqueo de Dinero en DUX</h4>
+              <ol class="step-list" id="cierre-steps" data-key="sections.cierre.steps">
+                <!-- Loaded dynamically -->
+              </ol>
+              <div class="alert-box alert-warning mt-4">
+                <i data-lucide="alert-octagon" class="alert-icon"></i>
+                <p id="cierre-warning" class="editable-block" data-key="sections.cierre.warningText">EN CASE DE DISCREPANCIAS O FALTANTES: Si los números no coinciden, verificá que no te hayas olvidado de registrar algún cobro, que no existan errores en los vueltos o movimientos omitidos. Si la diferencia persiste, informá de inmediato al encargado.</p>
+              </div>
+            </div>
+
+            <!-- Cash Counter Calculator -->
+            <div class="card premium-card calculator-card">
+              <div class="calculator-header">
+                <h4 class="card-title text-primary"><i data-lucide="calculator" class="card-icon-title"></i> Calculadora de Arqueo</h4>
+                <button id="calc-reset" class="btn-reset" title="Limpiar todo">
+                  <i data-lucide="rotate-ccw"></i>
+                </button>
+              </div>
+              <p class="card-desc">Contá los billetes en el cajón y completá la planilla:</p>
+              
+              <div class="calc-grid">
+                <div class="calc-row">
+                  <span class="bill-denom">$20.000</span>
+                  <input type="number" class="bill-qty" data-val="20000" min="0" placeholder="0">
+                  <span class="bill-subtotal" id="sub-20000">$0</span>
+                </div>
+                <div class="calc-row">
+                  <span class="bill-denom">$10.000</span>
+                  <input type="number" class="bill-qty" data-val="10000" min="0" placeholder="0">
+                  <span class="bill-subtotal" id="sub-10000">$0</span>
+                </div>
+                <div class="calc-row">
+                  <span class="bill-denom">$2.000</span>
+                  <input type="number" class="bill-qty" data-val="2000" min="0" placeholder="0">
+                  <span class="bill-subtotal" id="sub-2000">$0</span>
+                </div>
+                <div class="calc-row">
+                  <span class="bill-denom">$1.000</span>
+                  <input type="number" class="bill-qty" data-val="1000" min="0" placeholder="0">
+                  <span class="bill-subtotal" id="sub-1000">$0</span>
+                </div>
+                <div class="calc-row">
+                  <span class="bill-denom">$500</span>
+                  <input type="number" class="bill-qty" data-val="500" min="0" placeholder="0">
+                  <span class="bill-subtotal" id="sub-500">$0</span>
+                </div>
+                <div class="calc-row">
+                  <span class="bill-denom">$200</span>
+                  <input type="number" class="bill-qty" data-val="200" min="0" placeholder="0">
+                  <span class="bill-subtotal" id="sub-200">$0</span>
+                </div>
+                <div class="calc-row">
+                  <span class="bill-denom">$100</span>
+                  <input type="number" class="bill-qty" data-val="100" min="0" placeholder="0">
+                  <span class="bill-subtotal" id="sub-100">$0</span>
+                </div>
+                <div class="calc-row">
+                  <span class="bill-denom">Otros / Monedas</span>
+                  <input type="number" id="calc-others" min="0" step="any" placeholder="0.00">
+                  <span class="bill-subtotal" id="sub-others">$0</span>
+                </div>
+              </div>
+
+              <!-- Calculation Results -->
+              <div class="calc-results">
+                <div class="result-line">
+                  <span>Efectivo Total Contado:</span>
+                  <strong id="calc-total">$0</strong>
+                </div>
+                <div class="result-line text-warning">
+                  <span>Cambio Fijo para Siguiente Turno:</span>
+                  <strong>- $30.000</strong>
+                </div>
+                <div class="result-line net-delivery">
+                  <span>Efectivo Neto a Entregar (DUX):</span>
+                  <strong id="calc-net">$0</strong>
+                </div>
+              </div>
+
+              <!-- DUX Compare Field -->
+              <div class="dux-compare-wrap">
+                <div class="form-group">
+                  <label for="dux-expected">Efectivo Solicitado por DUX ($)</label>
+                  <input type="number" id="dux-expected" min="0" placeholder="Ingresá lo que dice la pantalla de DUX">
+                </div>
+                <div id="compare-result" class="compare-status hidden">
+                  <!-- Match result details -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Admin Verification Modal -->
+  <div id="admin-modal" class="modal-overlay hidden">
+    <div class="modal">
+      <h3 class="modal-title">Acceso al Modo Editor</h3>
+      <p class="modal-desc">Ingresá la contraseña administrativa para realizar cambios en los textos de la guía.</p>
+      <div class="form-group">
+        <input type="password" id="admin-password" placeholder="Contraseña (1234 por defecto)">
+        <span id="password-error" class="text-danger error-msg hidden">Contraseña incorrecta.</span>
+      </div>
+      <div class="modal-buttons">
+        <button id="modal-cancel-btn" class="btn btn-outline">Cancelar</button>
+        <button id="modal-confirm-btn" class="btn btn-primary">Ingresar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

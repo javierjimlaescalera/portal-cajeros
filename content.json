@@ -1,0 +1,73 @@
+{
+  "brandName": "LA ESCALERA S. A. S.",
+  "version": 2,
+  "welcomeTitle": "Portal de Ayuda para Cajeros",
+  "welcomeSubtitle": "Tu guía rápida de consulta diaria para DUX y operaciones de caja.",
+  "sections": {
+    "apertura": {
+      "title": "Apertura de Caja",
+      "icon": "📥",
+      "alertText": "Antes de realizar cualquier venta, es estrictamente obligatorio registrar la apertura en el sistema.",
+      "steps": [
+        "En el menú lateral de DUX, navegá a: <strong class='route'>Tesorería ➔ Caja Diaria ➔ Apertura de Caja</strong>.",
+        "Hacé clic directamente en el botón <strong class='action-btn'>Guardar</strong>.",
+        "¡Listo! El sistema ya queda habilitado para registrar transacciones."
+      ],
+      "checklist": [
+        "Verificar que la lectora de barras esté conectada y tenga luz roja.",
+        "Controlar que la ticketera tenga rollo de papel cargado (y tener repuestos a mano).",
+        "Asegurarse de que el cajón de dinero abra correctamente y tenga los $30.000 fijos de cambio."
+      ]
+    },
+    "cobrar": {
+      "title": "Cómo Cobrar",
+      "icon": "💰",
+      "alertText": "Seguí los pasos en el mostrador para evitar descuadres en los cierres de caja.",
+      "shortcuts": [
+        "Acceso Rápido 1: Marcador guardado de <strong>Punto de Venta POS</strong> en la barra de marcadores de Chrome.",
+        "Acceso Rápido 2: Desde el menú de DUX: <strong>Facturación ➔ Pto. de Venta POS</strong>."
+      ],
+      "steps": [
+        "<strong>1. Buscar y cargar los productos:</strong><br>• <em>Con lectora:</em> Hacé clic en el ícono del Código de barras [█] y pasá el lector por el artículo.<br>• <em>Búsqueda manual:</em> Hacé clic en el ícono de la Lupa [🔍] y escribí el nombre o palabras clave.",
+        "<strong>2. Seleccionar el tipo de comprobante (Obligatorio):</strong><br>• Seleccioná <span class='badge badge-success'>COMPROBANTE DE VENTA</span> si pagan con: <strong>Efectivo</strong>.<br>• Seleccioná <span class='badge badge-info'>FACTURA</span> si pagan con: <strong>Tarjetas (Débito o Crédito), Transferencias o Go Cuotas</strong>.",
+        "<strong>3. Procesar el cobro:</strong><br>• Hacé clic en el botón verde <strong class='action-btn success'>VENDER</strong>.<br>• Seleccioná el <strong>Medio de pago</strong> que corresponda en la lista.<br>• <em>Si es Efectivo:</em> Completá con el valor exacto del billete con el que te pagan para que el sistema calcule el vuelto.<br>• <em>Si es Combinado:</em> Seleccioná <strong class='action-btn'>COMBINADO</strong> y cargá los importes exactos de cada método (ej: efectivo + transferencia).<br>• Hacé clic en <strong class='action-btn success'>COBRAR</strong>.",
+        "<strong>4. Finalizar la operación:</strong><br>• Si el cliente lo solicita, hacé clic en <strong class='action-btn'>Imprimir</strong> para el ticket físico.<br>• Presioná siempre <strong class='action-btn'>Nueva Venta</strong> para limpiar el mostrador digital."
+      ],
+      "warningText": "SI EL ARTÍCULO NO FIGURA EN EL SISTEMA: Buscá y seleccioná el ítem denominado 'ARTICULO GENERICO' e ingresá el valor monetario correspondiente de forma manual."
+    },
+    "whatsapp": {
+      "title": "Enviar WhatsApp",
+      "icon": "📲",
+      "alertText": "Si el cliente prefiere recibir el comprobante de forma digital en su celular, realizá este proceso inmediatamente después de presionar 'Nueva Venta'.",
+      "steps": [
+        "En el menú lateral de DUX, dirígete a: <strong class='route'>Facturación ➔ Ventas</strong>.",
+        "Identificá la venta que acabás de realizar (aparecerá en primer lugar de la lista).",
+        "Hacé clic sobre el ícono de la <strong>Flechita (Compartir)</strong> asociado a esa venta.",
+        "Seleccioná la opción <strong>Enviar vía WhatsApp</strong>.",
+        "Completá el número de teléfono con la característica (ej: 54911...) y hacé clic en <strong>Enviar</strong>. Esto abrirá una pestaña de WhatsApp Web.",
+        "Presioná el botón de <strong>Enviar</strong> dentro del chat de WhatsApp."
+      ],
+      "templates": [
+        {
+          "name": "Envío de Ticket Estándar",
+          "text": "¡Hola! Te escribimos de LA ESCALERA S. A. S. Te adjuntamos el comprobante de tu compra. ¡Muchas gracias por elegirnos!"
+        },
+        {
+          "name": "Aviso de Promociones",
+          "text": "¡Hola! Gracias por tu compra en LA ESCALERA S. A. S. Recordá que con tu ticket tenés un 10% de descuento en tu próxima compra de los miércoles."
+        }
+      ]
+    },
+    "cierre": {
+      "title": "Cierre de Caja",
+      "icon": "🔒",
+      "alertText": "Al concluir tu jornada de trabajo, es mandatorio efectuar el arqueo y cierre para resguardar la seguridad del dinero.",
+      "steps": [
+        "Ingresá al menú: <strong class='route'>Tesorería ➔ Caja Diaria ➔ Cerrar Caja</strong>.",
+        "<strong>Control físico del dinero (Arqueo):</strong><br>• Retirá y separá exactamente <strong>$30.000 fijos</strong> del cajón de dinero. Este monto constituye el cambio inicial obligatorio para el siguiente turno.<br>• Procedé a contar el resto del efectivo físico remanente en el cajón.",
+        "El resultado de tu conteo físico <strong>debe coincidir de manera exacta</strong> con el monto de efectivo que el sistema DUX te solicita en la pantalla de cierre."
+      ],
+      "warningText": "EN CASO DE DISCREPANCIAS O FALTANTES: Si los números no coinciden, verificá que no te hayas olvidado de registrar algún cobro, que no existan errores en los vueltos o movimientos omitidos. Si la diferencia persiste, informá de inmediato al encargado."
+    }
+  }
+}

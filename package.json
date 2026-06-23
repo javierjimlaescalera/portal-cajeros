@@ -1,0 +1,12 @@
+{
+  "name": "portal-cajeros",
+  "version": "1.0.0",
+  "description": "Portal interno para los cajeros de La Escalera Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
