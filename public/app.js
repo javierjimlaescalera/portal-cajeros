@@ -83,6 +83,7 @@ const ADMIN_PASSWORD = "1234"; // default simple password
 document.addEventListener('DOMContentLoaded', () => {
   initClock();
   initTabs();
+  initMobileSidebar();
   loadContent();
   initCalculator();
   initWhatsAppGenerator();
@@ -91,6 +92,46 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Lucide icons
   lucide.createIcons();
 });
+
+// --- MOBILE SIDEBAR TOGGLE ---
+function initMobileSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('mobile-close-btn');
+  const backdrop = document.getElementById('sidebar-backdrop');
+
+  function openSidebar() {
+    sidebar.classList.add('open');
+    backdrop.classList.remove('hidden');
+    // Small delay so the 'hidden' removal triggers before opacity transition
+    requestAnimationFrame(() => {
+      backdrop.classList.add('visible');
+    });
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('visible');
+    // Wait for the fade-out transition before hiding
+    setTimeout(() => {
+      backdrop.classList.add('hidden');
+    }, 300);
+  }
+
+  if (menuBtn) menuBtn.addEventListener('click', openSidebar);
+  if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+  if (backdrop) backdrop.addEventListener('click', closeSidebar);
+
+  // Close sidebar when a menu item is clicked (mobile UX)
+  const menuItems = document.querySelectorAll('.menu-item');
+  menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        closeSidebar();
+      }
+    });
+  });
+}
 
 // --- CLOCK & DATE FUNCTION ---
 function initClock() {

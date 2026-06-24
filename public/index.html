@@ -27,6 +27,9 @@
             <h1 id="brand-title" class="editable-single" data-key="brandName">LA ESCALERA S. A. S.</h1>
             <span class="logo-badge">Terminal POS</span>
           </div>
+          <button id="mobile-close-btn" class="mobile-close-btn" aria-label="Cerrar menú">
+            <i data-lucide="x"></i>
+          </button>
         </div>
       </div>
       
@@ -61,11 +64,17 @@
       </div>
     </aside>
 
+    <!-- Mobile Sidebar Backdrop -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop hidden"></div>
+
     <!-- Main Content Area -->
     <main class="main-content">
       
       <!-- Top Action Bar -->
       <header class="top-bar">
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Abrir menú">
+          <i data-lucide="menu" class="btn-icon"></i>
+        </button>
         <div class="welcome-text">
           <h2 id="welcome-title" class="editable-single" data-key="welcomeTitle">Portal de Ayuda para Cajeros</h2>
           <p id="welcome-subtitle" class="editable-single" data-key="welcomeSubtitle">Tu guía rápida de consulta diaria para DUX y operaciones de caja.</p>
